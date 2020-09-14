@@ -29,12 +29,19 @@ function createWindow() {
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-    if (!process.env.IS_TEST) win.webContents.openDevTools()
+
+    // LInha comentada para não exibir por default  console de desenvolvedor
+    // if (!process.env.IS_TEST) win.webContents.openDevTools()
   } else {
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
+// *** Implementando função para renderizar o título escrito em package.json
+  win.webContents.on('did-finish-load', () => {
+    const { title, version } = require('../package.json')
+    win.setTitle(`${title} :: ${version}`)
+  })
 
   win.on('closed', () => {
     win = null

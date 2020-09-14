@@ -1,5 +1,6 @@
 {
   "name": "most-found-words",
+  "title": "Most Found Words",
   "version": "0.1.0",
   "private": true,
   "scripts": {
