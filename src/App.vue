@@ -3,9 +3,9 @@
     <v-app-bar app color="dark" dark>
       <v-toolbar-title>Most Found Words</v-toolbar-title>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <Home />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

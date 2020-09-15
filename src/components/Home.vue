@@ -22,28 +22,29 @@
 
 <script>
 import Pill from './Pill'
+import { ipcRenderer } from  'electron' // Dispara um evento qdo o usuário seleciona as legendas
 export default {
     components: { Pill },
     data: function () {
         return {
-            files:[],
-            groupedWords:[
-                {name:'i', amount: 1234},
-                {name:'you', amount: 950},
-                {name:'he', amount: 820},
-            ]
+            files: [],
+            groupedWords:[]
         }
     },
     methods: {
         //Processando a legenda
-        processSubtitles(){
-            console.log(this.files)
+        processSubtitles() {
+            const paths = this.files.map(f => f.path)
+            ipcRenderer.send('process-subtitles', paths)
+            ipcRenderer.on('process-subtitles', (event, resp) => {
+                this.groupedWords = resp
+            })
         }
     }
 }
 </script>
 
-<style>
+<style> 
     .pills {
         display: flex;
         flex-wrap: wrap;
