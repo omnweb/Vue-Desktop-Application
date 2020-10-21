@@ -1,4 +1,4 @@
-# Projeto Palavras mais encontradas
+# Projeto Palavras Mais Encontradas
 
 
 Este projeto foi desenvlvido utilizando Vue.js, Elextron.js e Node.js nas versões mais recentes. Adicionando legendas de filmes ou séries o aplicativo retorna a palavra seguida da quantidade de vezes que ela foi repetida.
